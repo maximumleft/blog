@@ -18,4 +18,5 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/', [IndexController::class,'index']);
 });
 
+
 Auth::routes();
