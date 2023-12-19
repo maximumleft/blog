@@ -1423,7 +1423,7 @@ var FullCalendar = (function (exports) {
             replaced = true;
             return tzoStr;
         });
-        // IE11 doesn't include UTC/GMT in the original string, so append to end
+        // IE11 doesn't includes UTC/GMT in the original string, so append to end
         if (!replaced) {
             s += " " + tzoStr;
         }
@@ -3749,7 +3749,7 @@ var FullCalendar = (function (exports) {
                 res.display = ui.display;
             }
             // TODO: what about recurring-event properties???
-            // TODO: include startEditable/durationEditable/constraint/overlap/allow
+            // TODO: includes startEditable/durationEditable/constraint/overlap/allow
             if (settings.collapseColor && ui.backgroundColor && ui.backgroundColor === ui.borderColor) {
                 res.color = ui.backgroundColor;
             }
@@ -4210,7 +4210,7 @@ var FullCalendar = (function (exports) {
         moreLinkText: 'more',
         noEventsText: 'No events to display',
     };
-    var RAW_EN_LOCALE = __assign(__assign({}, MINIMAL_RAW_EN_LOCALE), { 
+    var RAW_EN_LOCALE = __assign(__assign({}, MINIMAL_RAW_EN_LOCALE), {
         // Includes things we don't want other locales to inherit,
         // things that derive from other translatable strings.
         buttonHints: {
@@ -4684,7 +4684,7 @@ var FullCalendar = (function (exports) {
         document.body.removeChild(el);
         return res;
     }
-    // WARNING: will include border
+    // WARNING: will includes border
     function computeScrollbarWidthsForEl(el) {
         return {
             x: el.offsetHeight - el.clientHeight,
@@ -6789,7 +6789,7 @@ var FullCalendar = (function (exports) {
         var endMarker = framingRange.end;
         var instanceStarts = [];
         while (dayMarker < endMarker) {
-            var instanceStart 
+            var instanceStart
             // if everyday, or this particular day-of-week
             = void 0;
             // if everyday, or this particular day-of-week
@@ -9351,7 +9351,7 @@ var FullCalendar = (function (exports) {
                 var sectionKey = section.key;
                 var scrollerEl = scrollerElRefs.currentMap[sectionKey];
                 if (scrollerEl) {
-                    var harnessEl = scrollerEl.parentNode; // TODO: weird way to get this. need harness b/c doesn't include table borders
+                    var harnessEl = scrollerEl.parentNode; // TODO: weird way to get this. need harness b/c doesn't includes table borders
                     scrollerClientWidths[sectionKey] = Math.floor(harnessEl.getBoundingClientRect().width - (forceYScrollbars
                         ? scrollbarWidth.y // use global because scroller might not have scrollbars yet but will need them in future
                         : 0));
@@ -13816,7 +13816,7 @@ var FullCalendar = (function (exports) {
             if (!slatCoords) {
                 return null;
             }
-            return segs.map(function (seg, i) { return (createElement(NowIndicatorRoot, { isAxis: false, date: date, 
+            return segs.map(function (seg, i) { return (createElement(NowIndicatorRoot, { isAxis: false, date: date,
                 // key doesn't matter. will only ever be one
                 key: i }, function (rootElRef, classNames, innerElRef, innerContent) { return (createElement("div", { ref: rootElRef, className: ['fc-timegrid-now-indicator-line'].concat(classNames).join(' '), style: { top: slatCoords.computeDateTop(seg.start, date) } }, innerContent)); })); });
         };

@@ -3200,7 +3200,7 @@
                 return;
             }
             table.settings()[0]._searchBuilder = this;
-            // If using SSP we want to include the previous state in the very first server call
+            // If using SSP we want to includes the previous state in the very first server call
             if (this.s.dt.page.info().serverSide) {
                 this.s.dt.on('preXhr.dtsb', function (e, settings, data) {
                     var loadedState = _this.s.dt.state.loaded();

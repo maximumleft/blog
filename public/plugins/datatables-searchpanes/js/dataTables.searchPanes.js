@@ -1204,7 +1204,7 @@
         /**
          * Gets the options for the row for the customPanes
          *
-         * @returns {object} The options for the row extended to include the options from the user.
+         * @returns {object} The options for the row extended to includes the options from the user.
          */
         SearchPane.prototype._getBonusOptions = function () {
             // We need to reset the thresholds as if they have a value in colOpts then that value will be used
@@ -1283,7 +1283,7 @@
         /**
          * Gets the options for the row for the customPanes
          *
-         * @returns {object} The options for the row extended to include the options from the user.
+         * @returns {object} The options for the row extended to includes the options from the user.
          */
         SearchPane.prototype._getOptions = function () {
             var table = this.s.dt;
