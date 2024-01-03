@@ -18,6 +18,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('admin.tag.index')}}" class="nav-link">
+                    <i class="fa-solid fa-hashtag"></i>
+                    <p>
+                        Теги
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="fa-solid fa-circle-question"></i>
                     <p>Инфо</p>
