@@ -1,5 +1,10 @@
 @extends('admin.layouts.main')
 @section('content')
+    <style>
+        h1{
+            color:white;
+        }
+    </style>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -28,9 +33,9 @@
                             <tr>
                                 <td>{{$post->id}}</td>
                                 <td>{{$post->title}}</td>
-                                <td class="text-center"><a href="{{route('admin.tag.show',$post)}}"><i
+                                <td class="text-center"><a href="{{route('admin.post.show',$post)}}"><i
                                             class="fa-regular fa-eye"></i></a></td>
-                                <td class="text-center"><a href="{{route('admin.tag.edit',$post)}}" class="text-success"><i
+                                <td class="text-center"><a href="{{route('admin.post.edit',$post)}}" class="text-success"><i
                                             class="fa-solid fa-pen"></i></a></td>
                                 <td class="text-center">
                                     <form action="{{route('admin.post.destroy',$post)}}" method="POST">

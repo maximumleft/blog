@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin.info.index')}}" class="nav-link">
                     <i class="fa-solid fa-circle-question"></i>
                     <p>Инфо</p>
                 </a>
