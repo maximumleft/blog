@@ -1,5 +1,7 @@
 @extends('admin.layouts.main')
 @section('content')
+    <link rel="stylesheet" href="{{asset('dist/css/admin.css')}}">
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

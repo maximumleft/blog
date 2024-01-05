@@ -11,11 +11,7 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        h1{
-            color:white;
-        }
     </style>
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -136,5 +132,10 @@
        bsCustomFileInput.init();
     });
 </script>
+<style>
+    .custom-file-input:lang(en)~.custom-file-label::after{
+        content:"...";
+    }
+</style>
 </body>
 </html>

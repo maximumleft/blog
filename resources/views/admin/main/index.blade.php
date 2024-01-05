@@ -1,8 +1,5 @@
 @extends('admin.layouts.main')
 @section('content')
-    <style>
-        h1{
-            color:white;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('dist/css/admin.css')}}">
+
 @endsection

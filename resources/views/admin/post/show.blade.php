@@ -1,10 +1,7 @@
 @extends('admin.layouts.main')
 @section('content')
-    <style>
-        h1{
-            color:white;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('dist/css/admin.css')}}">
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -38,6 +35,10 @@
                        <tr>
                            <td>Название</td>
                            <td>{{$post->title}}</td>
+                       </tr>
+                       <tr>
+                           <td>Контент</td>
+                           <td>{{$post->content}}</td>
                        </tr>
                    </tbody>
                </table>

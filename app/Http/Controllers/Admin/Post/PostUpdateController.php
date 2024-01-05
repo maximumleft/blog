@@ -10,8 +10,11 @@ class PostUpdateController
 {
     public function index(PostStoreRequest $request, Post $post)
     {
+        print_r('asd');
+        die();
         $data = $request->validated();
+
         $post->update($data);
-        return redirect()->route('admin.post.show',compact('post'));
+        return redirect()->route('admin.post.show', compact('post'));
     }
 }

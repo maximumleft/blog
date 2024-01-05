@@ -24,8 +24,8 @@ class PostStoreRequest extends FormRequest
         return [
             'title' => 'required | string',
             'content' => 'required | string',
-            'preview_image' => 'required | file',
-            'main_image' => 'required | file',
+            'preview_image' => 'nullable | file',
+            'main_image' => 'nullable | file',
         ];
     }
 }

@@ -1,10 +1,7 @@
 @extends('admin.layouts.main')
 @section('content')
-    <style>
-        h1{
-            color:white;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('dist/css/admin.css')}}">
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -61,11 +58,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group ml-3">
+                    <a href="{{route('admin.post.index')}}" class="btn btn-secondary">Назад</a>
+                    <input type="submit" class="btn btn-primary" value="Добавить">
+                </div>
             </form>
         </div>
 
-        <div class="form-group ml-3">
-            <a href="{{route('admin.tag.index')}}" class="btn btn-secondary">Назад</a>
-            <input type="submit" class="btn btn-primary" value="Добавить">
-        </div>
+
 @endsection
