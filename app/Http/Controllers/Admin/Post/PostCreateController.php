@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
+use App\Models\Category;
+use App\Models\Tag;
+
 class PostCreateController
 {
     public function index()
     {
-        return view('admin.post.create');
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('admin.post.create',compact('categories','tags'));
     }
 }
