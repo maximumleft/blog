@@ -72,7 +72,7 @@
                 <div class="form-group" data-select2-id="42">
                     <label>Выберите теги</label>
                     <div class="select2-purple" data-select2-id="41">
-                        <select name="tag_ids[]" class="select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State"
+                        <select name="tag_ids[]" class="select2 select2-hidden-accessible" multiple="" data-placeholder="Выберите тег"
                                 data-dropdown-css-class="select2-purple" style="width: 100%;" data-select2-id="15"
                                 tabindex="-1" aria-hidden="true">
                             @foreach($tags as $tag)
