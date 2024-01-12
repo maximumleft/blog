@@ -38,7 +38,7 @@
                        </tr>
                        <tr>
                            <td>Контент</td>
-                           <td>{{$post->content}}</td>
+                           <td>{{strip_tags($post->content)}}</td>
                        </tr>
                    </tbody>
                </table>
