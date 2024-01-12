@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 
-class PostEditController
+class PostEditController extends BaseController
 {
     public function index(Post $post)
     {

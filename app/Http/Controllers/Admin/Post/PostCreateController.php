@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Post;
 use App\Models\Category;
 use App\Models\Tag;
 
-class PostCreateController
+class PostCreateController extends BaseController
 {
     public function index()
     {

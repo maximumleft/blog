@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Post;
 
 use App\Models\Post;
 
-class PostIndexController
+class PostIndexController extends BaseController
 {
     public function index()
     {
