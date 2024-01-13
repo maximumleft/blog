@@ -31,4 +31,16 @@ class PostStoreRequest extends FormRequest
             'tag_ids.*' => 'nullable | integer | exists:tags,id',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' =>'Это поле должно быть заполнено',
+            'title.string' =>'Это поле должно быть строкой',
+            'content.required' =>'Это поле должно быть заполнено',
+            'content.string' =>'Это поле должно быть строкой',
+            'preview_image.file' =>'Необходимо выбрать файл',
+            'main_image.file' =>'Необходимо выбрать файл',
+        ];
+    }
 }

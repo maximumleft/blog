@@ -23,14 +23,14 @@
                                value="{{old('title')}}">
                     </label>
                     @error('title')
-                    <div class="text-danger">Необходимо заполнить</div>
+                    <div class="text-danger">{{$message}}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
                     <textarea id="summernote" name="content" value="{{old('content')}}"></textarea>
                     @error('content')
-                    <div class="text-danger">Необходимо заполнить</div>
+                    <div class="text-danger">{{$message}}</div>
                     @enderror
                 </div>
 
@@ -45,6 +45,9 @@
                             <span class="input-group-text">Загрузка</span>
                         </div>
                     </div>
+                    @error('preview_image')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group w-50">
@@ -58,6 +61,9 @@
                             <span class="input-group-text">Загрузка</span>
                         </div>
                     </div>
+                    @error('main_image')
+                    <div class="text-danger">{{$message}}</div>
+                    @enderror
                 </div>
                 <div class="form-group w-50">
                     <label>Выберите категорию</label>
