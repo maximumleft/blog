@@ -9,6 +9,6 @@ class UserShowController
 {
     public function index(User $user)
     {
-        return view('admin.users.show',compact('user'));
+        return view('admin.user.show',compact('user'));
     }
 }

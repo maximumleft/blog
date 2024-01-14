@@ -1,12 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\Category\UserCreateController;
-use App\Http\Controllers\Admin\Category\UserDestroyController;
-use App\Http\Controllers\Admin\Category\UserEditController;
-use App\Http\Controllers\Admin\Category\UserIndexController;
-use App\Http\Controllers\Admin\Category\UserShowController;
-use App\Http\Controllers\Admin\Category\UserStoreController;
-use App\Http\Controllers\Admin\Category\UserUpdateController;
 use App\Http\Controllers\Admin\Info\AdminInfoController;
 use App\Http\Controllers\Admin\Main\AdminIndexController;
 use App\Http\Controllers\Admin\Post\PostCreateController;
@@ -23,6 +16,13 @@ use App\Http\Controllers\Admin\Tag\TagIndexController;
 use App\Http\Controllers\Admin\Tag\TagShowController;
 use App\Http\Controllers\Admin\Tag\TagStoreController;
 use App\Http\Controllers\Admin\Tag\TagUpdateController;
+use App\Http\Controllers\Admin\User\UserCreateController;
+use App\Http\Controllers\Admin\User\UserDestroyController;
+use App\Http\Controllers\Admin\User\UserEditController;
+use App\Http\Controllers\Admin\User\UserIndexController;
+use App\Http\Controllers\Admin\User\UserShowController;
+use App\Http\Controllers\Admin\User\UserStoreController;
+use App\Http\Controllers\Admin\User\UserUpdateController;
 use App\Http\Controllers\Main\IndexController;
 use Illuminate\Support\Facades\Route;
 

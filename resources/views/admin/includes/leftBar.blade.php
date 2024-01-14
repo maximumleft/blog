@@ -33,6 +33,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('admin.user.index')}}" class="nav-link">
+                    <i class="fa-solid fa-users"></i>
+                    <p>
+                        Пользователи
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('admin.info.index')}}" class="nav-link">
                     <i class="fa-solid fa-circle-question"></i>
                     <p>Инфо</p>
