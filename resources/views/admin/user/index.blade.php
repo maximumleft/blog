@@ -22,6 +22,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Role</th>
                             <th colspan="3" class="text-center">Actions</th>
                         </tr>
                         </thead>
@@ -30,6 +31,11 @@
                             <tr>
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
+                                <td>@if($user->role == 0)
+                                        <b style="color:purple">Admin</b>
+                                    @else
+                                        <b style="color:darkgreen">Reader</b>
+                                @endif</td>
                                 <td class="text-center"><a href="{{route('admin.user.show',$user)}}"><i
                                             class="fa-regular fa-eye"></i></a></td>
                                 <td class="text-center"><a href="{{route('admin.user.edit',$user)}}" class="text-success"><i
