@@ -29,16 +29,6 @@
 
                 <div class="form-group w-25">
                     <label>
-                        <input type="text" class="form-control" name="password" placeholder="Пароль"
-                               value="{{old('password')}}">
-                    </label>
-                    @error('password')
-                    <div class="text-danger">{{$message}}</div>
-                    @enderror
-                </div>
-
-                <div class="form-group w-25">
-                    <label>
                         <input type="text" class="form-control" name="email" placeholder="Почта"
                                value="{{old('email')}}">
                     </label>

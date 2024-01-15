@@ -23,7 +23,6 @@ class UserStoreRequest extends FormRequest
     {
         return [
             'name' => 'required | string',
-            'password' => 'required | string',
             'email' => 'required | email | unique:users',
             'role' => 'required | integer',
         ];
@@ -34,8 +33,6 @@ class UserStoreRequest extends FormRequest
         return [
             'name.required' =>'Это поле должно быть заполнено',
             'name.string' =>'Это поле должно быть строкой',
-            'password.required' =>'Это поле должно быть заполнено',
-            'password.string' =>'Это поле должно быть строкой',
             'email.required' =>'Это поле должно быть заполнено',
             'email.email' =>'Это должна быть почта',
         ];
