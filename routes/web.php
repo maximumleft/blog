@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\Category\CategoryCreateController;
+use App\Http\Controllers\Admin\Category\CategoryDestroyController;
+use App\Http\Controllers\Admin\Category\CategoryEditController;
+use App\Http\Controllers\Admin\Category\CategoryIndexController;
+use App\Http\Controllers\Admin\Category\CategoryShowController;
+use App\Http\Controllers\Admin\Category\CategoryStoreController;
+use App\Http\Controllers\Admin\Category\CategoryUpdateController;
 use App\Http\Controllers\Admin\Info\AdminInfoController;
 use App\Http\Controllers\Admin\Main\AdminIndexController;
 use App\Http\Controllers\Admin\Post\PostCreateController;
@@ -24,6 +31,9 @@ use App\Http\Controllers\Admin\User\UserShowController;
 use App\Http\Controllers\Admin\User\UserStoreController;
 use App\Http\Controllers\Admin\User\UserUpdateController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Personal\PersonalCommentController;
+use App\Http\Controllers\Personal\PersonalIndexController;
+use App\Http\Controllers\Personal\PersonalLikedController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +49,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', [IndexController::class, 'index']);
+});
+
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth','verified']], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', [PersonalIndexController::class, 'index'])->name('personal.main.index');
+    });
+
+
+    Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
+        Route::get('/', [PersonalLikedController::class, 'index'])->name('personal.licked.index');
+    });
+
+
+    Route::group(['namespace' => 'Comment','prefix' => 'comment'], function () {
+        Route::get('/', [PersonalCommentController::class, 'index'])->name('personal.comment.index');
+    });
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin','verified']], function () {
@@ -60,13 +86,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
 
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
-        Route::get('/', [UserIndexController::class, 'index'])->name('admin.category.index');
-        Route::get('/create', [UserCreateController::class, 'index'])->name('admin.category.create');
-        Route::post('/', [UserStoreController::class, 'index'])->name('admin.category.store');
-        Route::get('/{category}', [UserShowController::class, 'index'])->name('admin.category.show');
-        Route::get('/{category}/edit', [UserEditController::class, 'index'])->name('admin.category.edit');
-        Route::patch('/{category}', [UserUpdateController::class, 'index'])->name('admin.category.update');
-        Route::delete('/{category}', [UserDestroyController::class, 'index'])->name('admin.category.destroy');
+        Route::get('/', [CategoryIndexController::class, 'index'])->name('admin.category.index');
+        Route::get('/create', [CategoryCreateController::class, 'index'])->name('admin.category.create');
+        Route::post('/', [CategoryStoreController::class, 'index'])->name('admin.category.store');
+        Route::get('/{category}', [CategoryShowController::class, 'index'])->name('admin.category.show');
+        Route::get('/{category}/edit', [CategoryEditController::class, 'index'])->name('admin.category.edit');
+        Route::patch('/{category}', [CategoryUpdateController::class, 'index'])->name('admin.category.update');
+        Route::delete('/{category}', [CategoryDestroyController::class, 'index'])->name('admin.category.destroy');
     });
 
     Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {

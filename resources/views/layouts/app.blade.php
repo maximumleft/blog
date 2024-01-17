@@ -23,7 +23,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container" >
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -31,7 +31,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
@@ -40,6 +41,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -71,6 +73,10 @@
                                 </div>
                             </li>
                         @endguest
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <input class="btn btn-outline-primary" type="submit" value="Выйти">
+                        </form>
                     </ul>
                 </div>
             </div>

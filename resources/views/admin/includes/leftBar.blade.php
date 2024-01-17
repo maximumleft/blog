@@ -9,6 +9,12 @@
         <ul class="pt-3 nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
             <li class="nav-item">
+                <a href="{{route('admin.info.index')}}" class="nav-link">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <p>Статистика</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('admin.post.index')}}" class="nav-link">
                     <i class="fa-solid fa-table-list"></i>
                     <p>
@@ -38,12 +44,6 @@
                     <p>
                         Пользователи
                     </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('admin.info.index')}}" class="nav-link">
-                    <i class="fa-solid fa-circle-question"></i>
-                    <p>Инфо</p>
                 </a>
             </li>
         </ul>
