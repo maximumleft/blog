@@ -42,6 +42,10 @@
                             <td>{{$user->email}}</td>
                         </tr>
                         <tr>
+                            <td>Пароль</td>
+                            <td>{{$user->password}}</td>
+                        </tr>
+                        <tr>
                             <td>Создан:</td>
                             <td>{{$user->created_at}}</td>
                         </tr>
