@@ -31,9 +31,13 @@ use App\Http\Controllers\Admin\User\UserShowController;
 use App\Http\Controllers\Admin\User\UserStoreController;
 use App\Http\Controllers\Admin\User\UserUpdateController;
 use App\Http\Controllers\Main\IndexController;
-use App\Http\Controllers\Personal\PersonalCommentController;
+use App\Http\Controllers\Personal\Comment\PersonalCommentController;
+use App\Http\Controllers\Personal\Comment\PersonalCommentDeleteController;
+use App\Http\Controllers\Personal\Comment\PersonalCommentEditController;
+use App\Http\Controllers\Personal\Comment\PersonalCommentUpdateController;
+use App\Http\Controllers\Personal\Licked\PersonalLikedController;
+use App\Http\Controllers\Personal\Licked\PersonalLikedDeleteController;
 use App\Http\Controllers\Personal\PersonalIndexController;
-use App\Http\Controllers\Personal\PersonalLikedController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,11 +63,15 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' =>
 
     Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
         Route::get('/', [PersonalLikedController::class, 'index'])->name('personal.licked.index');
+        Route::delete('/{post}', [PersonalLikedDeleteController::class, 'index'])->name('personal.licked.delete');
     });
 
 
     Route::group(['namespace' => 'Comment','prefix' => 'comment'], function () {
         Route::get('/', [PersonalCommentController::class, 'index'])->name('personal.comment.index');
+        Route::get('/{comment}/edit', [PersonalCommentEditController::class, 'index'])->name('personal.comment.edit');
+        Route::patch('/{comment}', [PersonalCommentUpdateController::class, 'index'])->name('personal.comment.update');
+        Route::delete('/{comment}', [PersonalCommentDeleteController::class, 'index'])->name('personal.comment.delete');
     });
 });
 

@@ -2,32 +2,48 @@
 @section('content')
     <link rel="stylesheet" href="{{asset('dist/css/admin.css')}}">
     <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <h1 class='m-0'>Комментарии</h1>
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
         <div class="row">
-            <div class="col-lg-3 col-6  mt-3">
+            <div class='col-6'>
+                <div class="card">
 
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>1</h3>
-                        <p>Понравившиеся посты</p>
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th colspan="2" class="text-center">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($comments as $comment)
+                                <tr>
+                                    <td>{{$comment->id}}</td>
+                                    <td>{{$comment->message}}</td>
+                                    <td class="text-center"><a href="{{route('personal.comment.edit',$comment)}}" class="text-success">
+                                            <i class="fa-solid fa-pen"></i></a></td>
+                                    <td class="text-center">
+                                        <form action="{{route('personal.comment.delete',$comment)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="border-0 bg-transparent">
+                                                <i class="fa-solid fa-trash-can text-danger" role="button"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="icon">
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <a href="{{route('admin.user.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
 
-            <div class="col-lg-3 col-6  mt-3">
-
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>1</h3>
-                        <p>Коментарии</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa-regular fa-comment"></i>
-                    </div>
-                    <a href="{{route('admin.post.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
