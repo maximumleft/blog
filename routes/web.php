@@ -38,6 +38,9 @@ use App\Http\Controllers\Personal\Comment\PersonalCommentUpdateController;
 use App\Http\Controllers\Personal\Licked\PersonalLikedController;
 use App\Http\Controllers\Personal\Licked\PersonalLikedDeleteController;
 use App\Http\Controllers\Personal\PersonalIndexController;
+use App\Http\Controllers\Post\Comment\MainPostCommentStoreController;
+use App\Http\Controllers\Post\MainPostIndexController;
+use App\Http\Controllers\Post\MainPostShowController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,10 +55,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', [IndexController::class, 'index']);
+    Route::get('/', [IndexController::class, 'index'])->name('main.index');
 });
 
-Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth','verified']], function () {
+Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+    Route::get('/', [MainPostIndexController::class, 'index'])->name('post.index');
+    Route::get('/{post}', [MainPostShowController::class, 'index'])->name('post.show');
+        Route::group(['namespace' =>'Comment','prefix' => '{post}/comments'], function (){
+            Route::post('/',[MainPostCommentStoreController::class, 'index'])->name('post.comment.store');
+        });
+});
+
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', [PersonalIndexController::class, 'index'])->name('personal.main.index');
     });
@@ -67,7 +78,7 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' =>
     });
 
 
-    Route::group(['namespace' => 'Comment','prefix' => 'comment'], function () {
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
         Route::get('/', [PersonalCommentController::class, 'index'])->name('personal.comment.index');
         Route::get('/{comment}/edit', [PersonalCommentEditController::class, 'index'])->name('personal.comment.edit');
         Route::patch('/{comment}', [PersonalCommentUpdateController::class, 'index'])->name('personal.comment.update');
@@ -75,7 +86,7 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' =>
     });
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin','verified']], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', [AdminIndexController::class, 'index']);
     });
