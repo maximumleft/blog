@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/aos/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="{{ asset('assets/vendors/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/loader.js') }}"></script>
 </head>
@@ -34,6 +35,9 @@
                         @guest()
                             <a class="nav-link" href="{{route('personal.main.index')}}">Войти</a>
                         @endguest
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('category.index')}}">Категории</a>
                     </li>
                 </ul>
             </div>

@@ -30,6 +30,8 @@ use App\Http\Controllers\Admin\User\UserIndexController;
 use App\Http\Controllers\Admin\User\UserShowController;
 use App\Http\Controllers\Admin\User\UserStoreController;
 use App\Http\Controllers\Admin\User\UserUpdateController;
+use App\Http\Controllers\Category\MainCategoryIndexController;
+use App\Http\Controllers\Category\Post\CategoryPostIndexController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Personal\Comment\PersonalCommentController;
 use App\Http\Controllers\Personal\Comment\PersonalCommentDeleteController;
@@ -39,6 +41,7 @@ use App\Http\Controllers\Personal\Licked\PersonalLikedController;
 use App\Http\Controllers\Personal\Licked\PersonalLikedDeleteController;
 use App\Http\Controllers\Personal\PersonalIndexController;
 use App\Http\Controllers\Post\Comment\MainPostCommentStoreController;
+use App\Http\Controllers\Post\Like\MainPostLikeStoreController;
 use App\Http\Controllers\Post\MainPostIndexController;
 use App\Http\Controllers\Post\MainPostShowController;
 use Illuminate\Support\Facades\Route;
@@ -61,9 +64,22 @@ Route::group(['namespace' => 'Main'], function () {
 Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
     Route::get('/', [MainPostIndexController::class, 'index'])->name('post.index');
     Route::get('/{post}', [MainPostShowController::class, 'index'])->name('post.show');
-        Route::group(['namespace' =>'Comment','prefix' => '{post}/comments'], function (){
-            Route::post('/',[MainPostCommentStoreController::class, 'index'])->name('post.comment.store');
-        });
+
+    Route::group(['namespace' =>'Comment','prefix' => '{post}/comments'], function (){
+        Route::post('/',[MainPostCommentStoreController::class, 'index'])->name('post.comment.store');
+    });
+
+    Route::group(['namespace' =>'Like','prefix' => '{post}/likes'], function (){
+        Route::post('/',[MainPostLikeStoreController::class, 'index'])->name('post.like.store');
+    });
+});
+
+Route::group(['namespace' => 'Category','prefix' => 'categories'], function () {
+    Route::get('/', [MainCategoryIndexController::class, 'index'])->name('category.index');
+
+    Route::group(['namespace' =>'Post','prefix' => '{category}/posts'], function (){
+        Route::get('/',[CategoryPostIndexController::class, 'index'])->name('category.post.index');
+    });
 });
 
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
